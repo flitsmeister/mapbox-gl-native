@@ -21,6 +21,7 @@ This release changes how offline tile requests are billed — they are now bill
 * Fixed rendering and collision detection issues with using `MGLSymbolStyleLayer.textVariableAnchor` and `MGLSymbolStyleLayer.iconTextFit` properties on the same layer. ([#15367](https://github.com/mapbox/mapbox-gl-native/pull/15367))
 * Fixed symbol overlap when zooming out quickly. ([15416](https://github.com/mapbox/mapbox-gl-native/pull/15416))
 * Fixed a rendering issue where non-SDF icons would be treated as SDF icons if they are in the same layer. ([#15456](https://github.com/mapbox/mapbox-gl-native/pull/15456))
+* Fixed a sporadic crash when resigning active. ([#412](https://github.com/mapbox/mapbox-gl-native-ios/pull/412))
 
 ### Other changes
 
