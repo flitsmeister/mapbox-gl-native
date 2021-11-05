@@ -6293,7 +6293,8 @@ public:
         return;
     }
     
-    [self queueBackgroundSnapshot];
+    // TODO: Make a real fix for the crash, like https://github.com/maplibre/maplibre-gl-native/pull/68, but be careful, this brings other sporadic crashes!
+    //[self queueBackgroundSnapshot];
     
     if ([self.delegate respondsToSelector:@selector(mapViewDidBecomeIdle:)]) {
         [self.delegate mapViewDidBecomeIdle:self];
@@ -6779,7 +6780,8 @@ public:
 
     NSTimeInterval now = CACurrentMediaTime();
 
-    if (lastSnapshotTime == 0.0 || (now - lastSnapshotTime >   MGLBackgroundSnapshotImageInterval)) {
+    if (lastSnapshotTime == 0.0 || (now - lastSnapshotTime > MGLBackgroundSnapshotImageInterval)) {
+        MGLLogDebug(@"Taking snapshot");
         self.lastSnapshotImage = _mbglView->snapshot();
         lastSnapshotTime = now;
     }
